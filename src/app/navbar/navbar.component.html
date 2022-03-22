@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md bg-light navbar-light">
+  <div class="container-fluid">
+    <!-- brand -->
+    <a class="navbar-brand order-md-0 order-1 me-md-2" routerLink="/">
+      <img class="rounded-pill" src="assets/logo/edU-logos.jpeg"
+           style="width: 150px; height: 50px; object-fit: cover;">
+    </a>
+
+    <!-- offcanvas toggler -->
+    <button class="navbar-toggler order-0" type="button"
+            data-bs-toggle="offcanvas" data-bs-target=".offcanvas">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- collapsible navbar -->
+    <div class="collapse navbar-collapse order-1">
+      <ul class="navbar-nav align-items-center">
+        <app-nav-categories></app-nav-categories>
+        <app-nav-search class="me-2"></app-nav-search>
+        <app-nav-login-status></app-nav-login-status>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- offcanvas -->
+<div class="offcanvas offcanvas-start w-50" tabindex="-1">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">메뉴</h5>
+    <button type="button" class="d-block btn-close float-right"
+            data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <app-nav-login-status [offcanvas]="true"></app-nav-login-status>
+      <app-nav-categories class="text-reset"></app-nav-categories>
+    </ul>
+  </div>
+</div>

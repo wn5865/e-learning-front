@@ -1,0 +1,14 @@
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle me-2" data-bs-toggle="dropdown"
+     role="button">
+    카테고리
+  </a>
+  <ul class="dropdown-menu">
+    <li *ngFor="let category of categories">
+      <a class="dropdown-item" routerLink="courses"
+         [queryParams]="{ id: category.id }">
+        {{ category.name }}
+      </a>
+    </li>
+  </ul>
+</li>

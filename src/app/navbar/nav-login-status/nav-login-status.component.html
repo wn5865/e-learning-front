@@ -1,0 +1,14 @@
+<li class="nav-item">
+  <ng-container *ngIf="!isAuthenticated; else signout">
+    <a [ngClass]="offcanvas ? 'nav-link link-dark' : 'btn btn-primary'"
+       role="button" (click)="signIn()">로그인</a>
+  </ng-container>
+
+  <ng-template #signout>
+    <a class="me-2"
+       [ngClass]="offcanvas ? 'nav-link link-dark' : 'btn btn-primary'"
+       role="button" (click)="signOut()">로그아웃</a>
+    <a [ngClass]="offcanvas ? 'nav-link link-dark' : 'btn btn-primary'"
+       routerLink="/register-course">강의등록</a>
+  </ng-template>
+</li>

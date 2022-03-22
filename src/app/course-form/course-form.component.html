@@ -1,0 +1,168 @@
+<div class="container-fluid mt-3 position-relative">
+  <div class="row">
+    <div class="col-3 p-4 d-md-block d-none">
+      <ul class="list-group items">
+        <li class="list-group-item">
+          <a>강좌소개</a>
+        </li>
+        <li class="list-group-item">
+          <a>학습목표</a>
+        </li>
+        <li class="list-group-item">
+          <a> 선행요건</a>
+        </li>
+        <li class="list-group-item">
+          <a>강의대상</a>
+        </li>
+        <li class="list-group-item">
+          <a>커리큘럼</a>
+        </li>
+        <li class="list-group-item">
+          <a>강좌 이미지</a>
+        </li>
+      </ul>
+      <a class="position-absolute bottom-0 start-0 p-3" (click)="scrollToTop()">
+        <i class="bi bi-arrow-up-circle h1"></i>
+      </a>
+    </div>
+    <div class="col border border-light p-5">
+      <header class="mb-5">
+        <p>
+          다음 항목들은 강의 소개 페이지에 수록되므로 강의의 첫인상을 결정하는 중요한 항목들입니다.
+          수강생들이 수강결정을 쉽게 할 수 있도록 명료하게 작성해주시기 바랍니다.
+        </p>
+      </header>
+      <form [formGroup]="courseForm" (ngSubmit)="onSubmit()" class="form">
+        <section id="title" class="mb-5">
+          <h3 class="form-label mb-3">강의소개</h3>
+          <p>이 강좌의 제목과 부제목을 입력하시고 이 강좌는 어떤 강좌인지 설명해주세요</p>
+          <input class="form-control mb-3" formControlName="title" type="text"
+                 placeholder="제목">
+          <input class="form-control mb-3" formControlName="subtitle"
+                 type="text" placeholder="부제">
+          <textarea class="form-control mb-3" formControlName="description"
+                    placeholder="강의소개"></textarea>
+        </section>
+
+        <section id="category" class="mb-5">
+          <h3 class="form-label mb-3">카테고리 및 난이도</h3>
+          <p>이 강좌가 해당된다고 생각하는 카테고리와 난이도를 선택해주세요</p>
+          <div class="row">
+            <div class="col-md-6">
+              <select class="form-select" formControlName="category">
+                <option *ngFor="let c of categories" value="{{c.id}}">{{c.name}}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <select class="form-select" formControlName="level">
+                <option *ngFor="let l of levels" value="{{l.id}}">
+                  {{l.levelName}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-5">
+          <h3 class="form-label mb-3">
+            학습목표: 이 강의를 수강함으로써 학생들이 무엇을 얻어갈 수 있나요?
+          </h3>
+          <p class="text-muted">이 강좌를 수강하고 나면 얻어갈 수 있는 것 네 가지를 필수로 기입해주세요</p>
+          <div formGroupName="objectives">
+            <div class="vstack gap-2 mb-3">
+              <input class="form-control" formControlName="objective_1"
+                     type="text" placeholder="학습목표 1">
+              <input class="form-control" formControlName="objective_2"
+                     type="text" placeholder="학습목표 2">
+              <input class="form-control" formControlName="objective_3"
+                     type="text" placeholder="학습목표 3">
+              <input class="form-control" formControlName="objective_4"
+                     type="text" placeholder="학습목표 4">
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-5">
+          <h3 class="form-label mb-3">선행요건: 수강 전에 준비해야할 것들</h3>
+          <p>난이도를 고려할 때 강의를 듣기 전 먼저 학습해야할 것이 있다면 적어주세요</p>
+          <div class="mb-3">
+            <input class="form-control" formControlName="requirement"
+                   type="text" placeholder="요구사항">
+          </div>
+        </section>
+
+        <section class="mb-5">
+          <h3 class="form-label mb-3">강의 대상: 누가 주로 듣게 될까요?</h3>
+          <p>선생님께서 생각하시는 주요 수강층을 적어주세요</p>
+          <div class="mb-5">
+            <input class="form-control" formControlName="target" type="text"
+                   placeholder="강의 대상">
+          </div>
+        </section>
+
+        <section class="mb-5">
+          <h3 class="form-label mb-3">커리큘럼</h3>
+          <p>섹션 및 개별 강좌의 제목을 입력하고 강의 영상을 업로드 해주세요</p>
+
+          <div formArrayName="chapters" class="mb-5">
+            <ng-container *ngFor="let s of chapters().controls; let i = index">
+              <div [formGroupName]="i" class="p-3 border border-dark rounded">
+                <input formControlName="chapterTitle" id="i" type="text"
+                       class="form-control mb-3" placeholder="챕터 제목">
+
+                <div formArrayName="lectures">
+                  <ng-container *ngFor="let l of lectures(i).controls;
+                               let j = index">
+                    <div [formGroupName]="j">
+                      <input class="form-control mb-1 col-md-6"
+                             formControlName="lectureTitle" name="lectureTitle"
+                             type="text" placeholder="강의 제목">
+                      <input class="form-control col-md-6"
+                             formControlName="lectureVideo" name="lectureVideo"
+                             type="file" placeholder="강의 영상"
+                             (change)="getVideos($event, i, j)">
+                      <button class="btn btn-dark btn-sm m-3"
+                              (click)="deleteLecture(i, j)">
+                        강의 <i class="bi bi-dash fs-6"></i>
+                      </button>
+                    </div>
+
+                  </ng-container>
+                </div>
+              </div>
+              <button class="btn btn-dark btn-sm ms-3 my-3"
+                      (click)="deleteChapter(i)">
+                챕터 <i class="bi bi-dash fs-6 my-3"></i>
+              </button>
+              <button class="btn btn-primary btn-sm ms-3 my-3"
+                      (click)="addLecture(i)">
+                강의 <i class="bi bi-plus fs-6"></i>
+              </button>
+            </ng-container>
+            <button class="btn btn-primary btn-sm ms-3 my-3"
+                    (click)="addChapter()">
+              챕터 <i class="bi bi-plus fs-6"></i>
+            </button>
+          </div>
+
+        </section>
+
+        <section class="mb-5">
+          <h3 class="form-label mb-3">강좌 이미지</h3>
+          <p>강좌의 썸네일로 사용될 대표 이미지를 업로드해주세요</p>
+          <div class="mb-5">
+            <input class="form-control" formControlName="image" type="file"
+                   placeholder="강의 이미지" (change)="getImage($event)">
+          </div>
+        </section>
+
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary btn-lg"
+                  [disabled]="courseForm.invalid">
+            제출
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

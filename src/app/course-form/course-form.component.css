@@ -1,0 +1,10 @@
+.items * {
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+}
+
+.items li {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

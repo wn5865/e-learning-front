@@ -1,0 +1,36 @@
+<!-- course header -->
+<app-course-header [course]="course" [image]="image" [instructor]="instructor"
+                   [category]="category" [level]="level"
+                   [currentLecture]="currentLecture"></app-course-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-9">
+      <!-- course description -->
+      <div class="mb-5">
+        <div class="h3 mb-4">강의 소개</div>
+        <div>
+          <!-- {{ course.objectives }} -->
+          <!-- {{ course.requirement }} -->
+          {{ course.description }}
+        </div>
+      </div>
+
+      <!-- course accordian for chapters and lectures -->
+      <h3 class="h3 mb-4">커리큘럼</h3>
+      <app-course-accordion [chapters]="chapters" [lectures]="lectures">
+      </app-course-accordion>
+
+      <!-- instructor description -->
+      <div class="my-5">
+        <h3 class="h3 mb-4">선생님 소개</h3>
+        {{ instructor.name }}
+      </div>
+
+      <!-- reviews -->
+      <h3 class="h3 mb-4">리뷰</h3>
+      <app-course-reviews [reviews]="reviews"></app-course-reviews>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>

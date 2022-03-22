@@ -1,0 +1,16 @@
+<ngb-accordion [activeIds]="activeId">
+  <ngb-panel *ngFor="let ch of chapters; let i = index" title="{{ch.title}}"
+             id="{{'panel-' + i}}">
+    <ng-template ngbPanelContent>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let lec of lectures[i]" class="list-group-item">
+          <a routerLink="/courses/{{courseId}}/lectures/{{lec.id}}"
+             [ngClass]="{ 'text-primary': lec.id === lectureId }"
+             class="link-dark text-decoration-none">
+            {{ lec.title }}
+          </a>
+        </li>
+      </ul>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

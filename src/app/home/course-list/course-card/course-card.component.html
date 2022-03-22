@@ -1,0 +1,19 @@
+<ng-container *ngIf="course && image">
+  <a class="text-decoration-none" routerLink="/courses/{{ course.id }}">
+    <div class="card">
+      <img class="card-img-top" src="{{ image.url }}">
+      <div class="card-body">
+        <h6 class="card-title text-body">{{ course.title }}</h6>
+        <p class="card-text mb-1">
+          <app-instructor [course]="course"></app-instructor>
+        </p>
+        <p class="card-text mb-1 text-body">
+          <app-course-rating [course]="course"></app-course-rating>
+        </p>
+        <p class="card-text text-body">
+          {{ course.price | currency: 'KRW' }}
+        </p>
+      </div>
+    </div>
+  </a>
+</ng-container>

@@ -1,0 +1,22 @@
+<div class="mb-5">
+  <div class="list-group">
+    <div class="list-group-item" *ngFor="let review of reviews; let i = index">
+      <div class="row">
+        <div class="col-1" style="min-width: 70px">
+          <img src="https://randomuser.me/api/portraits/men/{{i}}.jpg"
+               class="rounded-circle img-fluid">
+        </div>
+        <div class="col">
+          <div>{{ review.user?.name }}</div>
+          <div class="d-flex mb-2">
+            <ngb-rating class="text-warning me-2" [rate]="review.rating || 0"
+                        [readonly]="true" [max]="5">
+            </ngb-rating>
+            <div> {{ review.created | date:'yyyy-MM-dd'}} </div>
+          </div>
+          <div>{{ review.content }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

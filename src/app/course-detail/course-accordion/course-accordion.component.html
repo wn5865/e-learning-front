@@ -1,0 +1,10 @@
+<ngb-accordion>
+  <h3 class="mb-3">커리큘럼</h3>
+  <ngb-panel *ngFor="let ch of chapters; let i = index" title="{{ch.title}}">
+    <ng-template ngbPanelContent>
+      <p *ngFor="let lec of lectures[i]">
+        {{ lec.title }}
+      </p>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

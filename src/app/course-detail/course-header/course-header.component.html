@@ -1,0 +1,40 @@
+<div class="bg-dark text-light mb-5">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-around">
+      <!-- 좌측 카드 -->
+      <div class="card bg-dark col-lg-5">
+        <img class="card-img-top mb-3" src="{{ image.url }}">
+        <div class="card-body vstack">
+          <div class="mb-3 btn-group">
+            <button class="btn btn-primary btn-large">수강신청</button>
+            <button routerLink="/courses/{{course.id}}/lectures/{{currentLecture.id}}"
+                    class="btn btn-warning btn-large">수강하기</button>
+          </div>
+          <div class="h2">
+            <span>수강료: </span> {{ course.price | currency: 'KRW' }}
+          </div>
+        </div>
+      </div>
+      <!-- 우측 설명 -->
+      <div class="col-lg-5 mt-lg-0 mt-3">
+        <div class="mb-3">
+          {{ category.name }}
+        </div>
+        <h2 class="mb-2">
+          {{ course.title }}
+        </h2>
+        <div class="header-subtitle h3 fw-lighter mb-4">
+          {{ course.subtitle }}
+        </div>
+        <div class="mb-3">
+          <app-course-rating class="me-3" [course]="course"></app-course-rating>
+          <span>{{course.numStudents}}명이 수강 중</span>
+        </div>
+        <div class="mb-3">
+          <span class="me-4">강사: {{ instructor.name }}</span>
+          <span>난이도: {{ level.levelName }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

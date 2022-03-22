@@ -1,0 +1,44 @@
+<div class="container-fluid py-4">
+  <div class="row">
+
+    <!-- main content -->
+    <div class="col-lg-8 col-12">
+      <app-lecture-video [lecture]="currentLecture"></app-lecture-video>
+      <ul ngbNav #nav="ngbNav" [(activeId)]="activeId" class="nav-tabs mt-3">
+        <li [ngbNavItem]="0" class="d-block d-lg-none">
+          <a ngbNavLink>목차</a>
+          <ng-template ngbNavContent>
+            <app-lecture-side-nav [courseId]="courseId" [lectureId]="lectureId"
+                                  [chapters]="chapters" [lectures]="lectures">
+            </app-lecture-side-nav>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>강의소개</a>
+          <ng-template ngbNavContent>
+            <div class="p-3">
+              {{ course.description }}
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>리뷰</a>
+          <ng-template ngbNavContent>
+            <div class="p-3">
+              <app-course-reviews [reviews]="reviews"></app-course-reviews>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+
+    <!-- navigation -->
+    <div class="d-none d-lg-block col-lg-4">
+      <h3 class="pt-0 p-3 mb-0">목차</h3>
+      <app-lecture-side-nav [courseId]="courseId" [lectureId]="lectureId"
+                            [chapters]="chapters" [lectures]="lectures">
+      </app-lecture-side-nav>
+    </div>
+  </div>
+</div>

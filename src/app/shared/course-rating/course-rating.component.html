@@ -1,0 +1,7 @@
+<div *ngIf="course" class="d-inline-flex">
+  <span class="me-2">{{ avgRating | number: '0.1-1' }}</span>
+  <ngb-rating class="text-warning me-2" [max]="5" [rate]="avgRating!"
+              [readonly]="true">
+  </ngb-rating>
+  <span>({{ course.numRatings }})</span>
+</div>
