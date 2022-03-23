@@ -5,6 +5,6 @@ export default {
     redirectUri: 'https://jiwon-online-learning.herokuapp.com/login/callback',
     scopes: ['openid', 'profile', 'email'],
   },
-  API_URL: 'http://jiwon-first-project.com',
+  API_URL: 'https://jiwon-first-project.com',
   HEROKU_URL: 'https://jiwon-online-learning.herokuapp.com/',
 };
