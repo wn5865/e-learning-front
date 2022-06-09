@@ -1,7 +1,7 @@
 <h1 align="center">
   <br>
   <a href="https://jiwon-online-learning.herokuapp.com/">
-    <img src="https://github.com/wn5865/e-learning-front/blob/main/src/assets/logo/edU-logos.jpeg" alt="EDU" width="50">
+    <img src="https://github.com/wn5865/e-learning-front/blob/main/src/assets/logo/edU-logos.jpeg" alt="EDU" width="100">
   </a>
   <br>
   EDU
@@ -31,6 +31,8 @@ Heroku에 배포한 사이트 주소 👉 https://jiwon-online-learning.herokuap
 
 - 기타
   - [okta](https://www.okta.com/) - 사용자 인증 클라우드 플랫폼
+  - [AWS RDS](https://aws.amazon.com/ko/rds/) - 관계형 데이터베이스 클라우드
+  - [Heroku](https://www.heroku.com/) - 클라우드 플랫폼
 
 ## 주요 기능
 
