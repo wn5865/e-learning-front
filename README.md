@@ -3,6 +3,7 @@
   <a href="https://jiwon-edu.herokuapp.com/">
     <img src="https://github.com/wn5865/natour/blob/main/public/img/logo-green-round.png" alt="EDU" width="50">
   </a>
+  <br>
   EDU
 </h1>
 
