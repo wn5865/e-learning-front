@@ -60,6 +60,13 @@ Heroku에 배포한 사이트 주소 👉 https://jiwon-online-learning.herokuap
 
 ## 시연 영상
 
+#### 홈페이지:
+![homepage](https://user-images.githubusercontent.com/77910547/172944213-d847c841-e4f4-4d9a-82ba-b4cfe49d6da7.gif)
+
+#### 강좌상세:
+![details](https://user-images.githubusercontent.com/77910547/172944243-273417f7-025d-4a4c-abd5-844b7413a31c.gif)
+
+#### 시연 영상:
 https://drive.google.com/file/d/13nEgJkqbKfgOWFrpwl8DO6l5TLtxP0QI/view?usp=sharing
 
 ## 향후 추가해야할 기능들
