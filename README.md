@@ -43,11 +43,12 @@ Heroku에 배포한 사이트 주소 👉 https://jiwon-online-learning.herokuap
 ### 회원가입 및 로그인
 
 - 홈페이지 상단의 로그인을 누르면 로그인 화면으로 이동
-- 로그인 화면 하단의 '가입' 버튼을 눌러 회원가입
+- 회원가입이 안 되어있으면 로그인 화면 하단의 '가입' 버튼을 눌러 회원가입
 
 ### 강의 수강
 
 - 로그인 후 강의 상세정보 페이지에서 '수강하기' 버튼을 눌러 강의 수강 가능
+- 상단 카테고리 버튼을 이용하여 특정 카테고리에 속한 강의 불러오기 가능
 
 ### 강의 등록
 
@@ -58,7 +59,7 @@ Heroku에 배포한 사이트 주소 👉 https://jiwon-online-learning.herokuap
 
 https://drive.google.com/file/d/13nEgJkqbKfgOWFrpwl8DO6l5TLtxP0QI/view?usp=sharing
 
-## 향후 추가해야할 사항들
+## 향후 추가해야할 기능들
 
 - 강의 북마크 기능
 - 사용자가 강의 수강 후 리뷰를 남길 수 있는 기능
