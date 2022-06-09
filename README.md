@@ -1,7 +1,7 @@
 <h1 align="center">
   <br>
-  <a href="https://jiwon-edu.herokuapp.com/">
-    <img src="https://github.com/wn5865/natour/blob/main/public/img/logo-green-round.png" alt="EDU" width="50">
+  <a href="https://jiwon-online-learning.herokuapp.com/">
+    <img src="https://github.com/wn5865/e-learning-front/blob/main/src/assets/logo/edU-logos.jpeg" alt="EDU" width="50">
   </a>
   <br>
   EDU
